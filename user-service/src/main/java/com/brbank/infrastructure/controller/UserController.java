@@ -1,7 +1,8 @@
-package com.brbank.controller;
+package com.brbank.infrastructure.controller;
 
-import com.brbank.entity.UserVO;
-import com.brbank.service.UserService;
+import com.brbank.application.handler.UserHandler;
+import com.brbank.infrastructure.dto.request.CreateUserRequest;
+import com.brbank.infrastructure.dto.response.UserResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private final UserHandler userHandler;
 
     @PostMapping
-    public ResponseEntity<UserVO> save(@RequestBody UserVO userVO) {
-        return ResponseEntity.ok(userService.save(userVO));
+    public ResponseEntity<UserResponse> registerUser(@RequestBody CreateUserRequest request) {
+        return ResponseEntity.ok(userHandler.createUser(request));
     }
 }
