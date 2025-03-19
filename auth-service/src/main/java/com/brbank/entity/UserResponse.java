@@ -1,4 +1,4 @@
-package com.brbank.infrastructure.dto.request;
+package com.brbank.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,11 +9,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateUserRequest {
+public class UserResponse {
+    private Long id;
     private String name;
     private String lastName;
     private String email;
     private String userName;
-    private String password;
     private String role;
 }
